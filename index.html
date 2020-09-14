@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="node_modules/vuelidate/dist/vuelidate.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <title>Registration</title>
+</head>
+<body>
+    <form action="#" class="reg" id="registration_form" method="POST" @submit="checkForm" novalidate>
+        <div v-if="errors.length" id="errors">
+                <h1>Пожалуйста, учтите при заполнении следующие правила:</h1>
+                <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                </ul>
+        </div>
+        <div class="container active">
+            <h1>Информация о клиенте</h1>
+            <div class="Form__Item SecondName">
+                <label for="SecondName"><span>*</span>Фамилия:</label>
+                <input type="text" name="SecondName" id="" v-model="sName">
+            </div>
+            <div class="Form__Item FirstName">
+                <label for="FirstName"><span>*</span>Имя:</label>
+                <input type="text" name="FirstName" id="" v-model="fName">
+            </div>
+            <div class="Form__Item MiddleName">
+                <label for="MiddleName">Отчество:</label>
+                <input type="text" name="MiddleName" id="">
+            </div>
+            <div class="Form__Item Birth">
+                <label for="Birth"><span>*</span>Дата рождения:</label>
+                <input type="date" name="Birth" id="" v-model="born">
+            </div>
+            <div class="Form__Item Number">
+                <label for="Number"><span>*</span>Номер телефона:</label>
+                <input type="tel" name="Number" id="" v-model="phone">
+            </div>
+            <div class="Form__Item Sex">
+                <label>Пол:</label>
+                <div class="radio_Male">
+                    <input type="radio" name="Sex" id="Sex0" value="Male">
+                    <label for="Sex1">Мужской</label>
+                </div>
+                <div class="radio_Female">
+                    <input type="radio" name="Sex" id="Sex1" value="Female">
+                    <label for="Sex1">Женский</label>
+                </div>
+            </div>
+            <div class="Form__Item Group">
+                <label><span>*</span>Группа клиентов:</label>
+                <select name="Group" class="Group__selector" multiple id="" v-model="group">
+                    <option value="0">VIP</option>
+                    <option value="1">Проблемные</option>
+                    <option value="2">ОМС</option>
+                </select>
+            </div>
+            <div class="Form__Item Doctor">
+                <label>Лечащий врач:</label>
+                <select class="Doctor__Selector" name="Doctor">
+                    <option value="0">Иванов</option>
+                    <option value="1">Захаров</option>
+                    <option value="2">Чернышева</option>
+                </select>
+            </div>
+            <div class="Form__Item Sms">
+                <label for="Sms">Не отправлять сообщения:</label>
+                <input type="checkbox" name="Sms" id="check_sms">
+            </div>
+            <p class="anotation"><span>*</span> - Обязательные поля</p>
+        </div>
+        <div class="container">
+            <h1>Адрес</h1>
+            <div class="Form__Item Index">
+                <label for="Index">Индекс:</label>
+                <input type="text" name="Index" id="" v-model="index">
+            </div>
+            <div class="Form__Item Country">
+                <label for="Country">Страна:</label>
+                <input type="text" name="Country" id="">
+            </div>
+            <div class="Form__Item Region">
+                <label for="Region">Область:</label>
+                <input type="text" name="Region" id="">
+            </div>
+            <div class="Form__Item City">
+                <label for="City"><span>*</span>Город:</label>
+                <input type="text" name="City" id="" v-model="city">
+            </div>
+            <div class="Form__Item Street">
+                <label for="Street">Улица:</label>
+                <input type="text" name="Street" id="">
+            </div>
+            <div class="Form__Item House">
+                <label for="House">Дом:</label>
+                <input type="text" name="House" id="">
+            </div>
+            <p class="anotation"><span>*</span> - Обязательные поля</p>
+        </div>
+        <div class="container">
+            <h1>Паспортные данные</h1>
+            <div class="Form__Item Doc__Type">
+                <label><span>*</span>Тип документа:</label>
+                <select class="Doc__Type__Selector" name="Doc__Type" id="" v-model="dtype">
+                    <option value="0">Паспорт</option>
+                    <option value="1">Свидетельство о рождении</option>
+                    <option value="2">Вод. удостоверение</option>
+                </select>
+            </div>
+            <div class="Form__Item Doc__Series">
+                <label>Серия:</label>
+                <input type="text" name="Doc__Series" id="">
+            </div>
+            <div class="Form__Item Doc__Number">
+                <label>Номер:</label>
+                <input type="text" name="Doc__Number" id="">
+            </div>
+            <div class="Form__Item Doc__Issuer">
+                <label>Кем выдан:</label>
+                <input type="text" name="Doc__Issuer" id="">
+            </div>
+            <div class="Form__Item Doc__Data">
+                <label><span>*</span>Дата выдачи:</label>
+                <input type="date" name="Doc__Data" id="" v-model="dGetData">
+            </div>
+            <p class="anotation"><span>*</span> - Обязательные поля</p>
+            <input type="submit" class="btn" value="Отправить">
+        </div>
+        <div class="content_select" id="pgs">
+            <p id="go_back">Предыдущая страница</p>
+            <p id="go_forward">Следующая страница</p>
+        </div>
+    </form>
+</body>
+<script src="js/main.js"></script>
+</html>
