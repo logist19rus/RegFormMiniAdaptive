@@ -96,7 +96,13 @@ form {
 
 .Form__Item label {
   width: 35%;
-  font-size: 20px;
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .Form__Item label {
+    width: 100%;
+  }
 }
 
 .Form__Item input {
@@ -144,7 +150,7 @@ form {
             justify-content: space-between;
   }
   .Sex label, .Sms label {
-    width: initial;
+    width: initial !important;
   }
 }
 
@@ -214,7 +220,10 @@ span {
 
 .btn {
   width: 25%;
-  height: 25px;
+  height: 35px;
+  margin: 15px;
+  background: #d9eedb;
+  border-radius: 3px;
 }
 
 #errors {

@@ -58,7 +58,10 @@ form{
     width: 90%;
     label{
         width: 35%;
-        font-size: 20px;
+        font-size: 18px;
+        @media (max-width:600px){
+            width: 100%;
+        }
     }
     input{
         font-size: 17px;
@@ -82,7 +85,7 @@ form{
         flex-direction: row;
         justify-content: space-between;
         label{
-            width: initial;
+            width: initial !important;
         }
     }
 }
@@ -131,7 +134,10 @@ span{
 }
 .btn{
     width: 25%;
-    height: 25px;
+    height: 35px;
+    margin: 15px;
+    background: #d9eedb;
+    border-radius: 3px;
 }
 
 #errors{
